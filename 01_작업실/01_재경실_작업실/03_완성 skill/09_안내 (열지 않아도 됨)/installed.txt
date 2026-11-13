@@ -1,0 +1,2 @@
+「Trip Report」 skill을 설치했습니다.
+ChatGPT 앱에서 새 채팅(Ctrl+N)을 열고 입력창에 $ 를 치면 목록에 보입니다.
