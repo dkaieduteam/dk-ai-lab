@@ -7,4 +7,4 @@ skill은 AI에게 일하는 방법을 적어 둔 폴더입니다. 한 번 등록
 
 | skill | 하는 일 | 최신 버전 | 다운로드 |
 |---|---|---|---|
-| (준비 중) | | | |
+| [출장복명 (trip-report)](01_출장복명_trip-report) | 영수증으로 출장·외근 복명 엑셀 작성 | v1 (2026-11-16) | [zip](https://github.com/dkaieduteam/dk-ai-lab/releases/download/trip-report-v1/trip-report-skill.zip) |
