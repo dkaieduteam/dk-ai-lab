@@ -20,21 +20,17 @@
 |---|---|
 | OS | Windows 10/11 (x64) |
 | Node.js | 24 LTS 이상 (설치 후 재부팅 1회) |
-| ChatGPT | 데스크톱 앱 설치, Business Standard 또는 커스텀 MCP 커넥터 사용 가능 플랜 로그인 |
-| NAVER WORKS | 메일·메신저 로그인 계정 (실습용 메일함 · 교육 참가자는 교육팀 공용 계정) |
-| OpenAI Platform | 본인 계정으로 Tunnel·API Key 발급 (교육 참가자는 교육팀 공유 값 사용 가능) |
+| ChatGPT | 데스크톱 앱 설치, 커스텀 MCP 플러그인 사용 가능 플랜(Business Standard 등) 로그인 |
+| NAVER WORKS | 본인 메일·메신저 로그인 계정 (실습 전용 메일 폴더·접두어 설정 필요) |
+| OpenAI Platform | 본인 계정으로 Tunnel·API Key 발급 필수 |
 
 ## .env 설정
 
-Starter_kit 루트에 `.env` 파일이 포함돼 있지만 값이 비어 있습니다. 아래 두 경로 중 하나로 채웁니다.
+Starter_kit 루트에 `.env` 파일이 포함돼 있지만 값이 비어 있습니다. 본 스타터키트는 **교육 당일 사용한 교육팀 공용 계정으로는 더 이상 실습이 불가능**하며, **본인 NAVER WORKS 계정과 본인 OpenAI Platform 계정**으로만 실행됩니다. 아래 3가지 값을 사전 발급·입력해야 `START_HERE.cmd` 가 정상 동작합니다.
 
-**교육 참가자 (11-06·11-13 등 교육팀 운영 회차)**
-- 교육팀에서 별도 공유받은 `.env` 파일로 이 파일을 교체하면 됩니다. 공용 계정 ID·비밀번호·Tunnel ID·API Key가 사전 반영돼 있습니다.
-
-**본인 계정 사용자 (외부 열람자 · 자가 실습)**
-1. **NAVER WORKS 계정**: `NW_ID`에 본인 이메일, `NW_PW`에 비밀번호를 입력합니다.
-2. **OpenAI Platform Tunnel**: [https://platform.openai.com/settings/organization/tunnels](https://platform.openai.com/settings/organization/tunnels) 에서 `Create tunnel`로 생성한 `tunnel_...` 값을 `TUNNEL_ID`에 입력합니다 (Organizations = Personal).
-3. **OpenAI API Key**: [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys) 에서 `Create new secret key`로 발급(`Restricted` · `Tunnels` 의 `Read` + `Use` 만 허용)해 `sk-...` 값을 `API_KEY`에 입력합니다. 만료 30일 이내 권장.
+1. **NAVER WORKS 계정 (`NW_ID`·`NW_PW`)**: 본인 NAVER WORKS 이메일과 비밀번호를 각각 입력합니다.
+2. **OpenAI Platform Tunnel (`TUNNEL_ID`)**: [https://platform.openai.com/settings/organization/tunnels](https://platform.openai.com/settings/organization/tunnels) 에서 `Create tunnel`로 생성한 `tunnel_...` 값을 입력합니다 (Organizations = Personal).
+3. **OpenAI API Key (`API_KEY`)**: [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys) 에서 `Create new secret key`로 발급(`Restricted` · `Tunnels` 의 `Read` + `Use` 만 허용)해 `sk-...` 값을 입력합니다. 만료 30일 이내 권장.
 
 ## 실행 흐름
 
