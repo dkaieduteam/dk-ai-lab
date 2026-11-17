@@ -16,6 +16,7 @@ dk-ai-lab/
 │       ├─ README.md     소개 · 다운로드 링크 · 등록 방법 · 버전 기록
 │       └─ (skill 파일)
 └─ 03_사외스킬/          다른 곳에서 만들어 공개한 skill (파일 없이 안내만)
+                         ※ 받기 전에 01_스킬보안점검(SkillSpector)으로 먼저 검사 권장
     └─ NN_<skill 이름>/
         └─ README.md     만든 곳 · 목적 · 원본 주소 · 설치 방법
 ```
@@ -49,8 +50,8 @@ dk-ai-lab/
 | DK스킬 | [출장복명 (trip-report)](02_DK스킬/01_출장복명_trip-report) | 재경실 워크샵 (품의서·출장복명) | v1 (2026-11-16) |
 | DK스킬 | [인쇄물 제작 (print-design)](02_DK스킬/02_인쇄물제작_print-design) | 바로쓰는 HTML공지 스킬 만들기 (수강생 질문에서 파생) | v1 (2026-11-16) |
 | DK스킬 | [IRIS 공지 HTML (iris-notice-html)](02_DK스킬/03_IRIS공지HTML_iris-notice-html) | 바로쓰는 HTML공지 스킬 만들기 | v1 (2026-11-17) |
-| 사외스킬 | [프론트엔드 디자인 (frontend-design)](03_사외스킬/01_프론트엔드디자인_frontend-design) ※ Anthropic 제작·공개 | 바로쓰는 HTML공지 스킬 만들기 | 원본 주소에서 설치 |
-| 사외스킬 | [스킬 보안 점검 (SkillSpector)](03_사외스킬/02_스킬보안점검_SkillSpector) ※ NVIDIA 제작·공개 | — (skill 설치 전 점검용 추천) | 원본 주소에서 설치 |
+| 사외스킬 | [스킬 보안 점검 (SkillSpector)](03_사외스킬/01_스킬보안점검_SkillSpector) ※ NVIDIA 제작·공개 | — (skill 설치 전 점검용 추천) | 원본 주소에서 설치 |
+| 사외스킬 | [프론트엔드 디자인 (frontend-design)](03_사외스킬/02_프론트엔드디자인_frontend-design) ※ Anthropic 제작·공개 | 바로쓰는 HTML공지 스킬 만들기 | 원본 주소에서 설치 |
 
 ## 문의
 
