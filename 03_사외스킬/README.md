@@ -13,4 +13,4 @@
 | [프론트엔드 디자인 (frontend-design)](02_프론트엔드디자인_frontend-design) | Anthropic (Apache 2.0) | AI티를 덜어내주는 웹 화면·HTML 디자인 방향 잡기 | [GitHub](https://github.com/anthropics/skills/tree/main/skills/frontend-design) |
 | [한국어 윤문 (slop-rewrite)](03_한국어윤문_slop-rewrite) | Byungjun Jang (MIT) | AI가 쓴 한국어 글의 AI티를 덜고 문체·취향에 맞게 다시 쓰기 | [GitHub](https://github.com/byungjunjang/slop-rewrite) |
 
-팀이 만든 skill은 [02_DK스킬](../02_DK스킬)에 있습니다.
+사내에서 만들어진 skill은 [02_DK스킬](../02_DK스킬)에 있습니다.
