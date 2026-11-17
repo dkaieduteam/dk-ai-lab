@@ -46,6 +46,7 @@ dk-ai-lab/
 | 스킬 | [출장복명 (trip-report)](02_스킬/01_출장복명_trip-report) | 재경실 워크샵 (품의서·출장복명) | v1 (2026-11-16) |
 | 스킬 | [인쇄물 제작 (print-design)](02_스킬/02_인쇄물제작_print-design) | 바로쓰는 HTML공지 스킬 만들기 (수강생 질문에서 파생) | v1 (2026-11-16) |
 | 스킬 | [프론트엔드 디자인 (frontend-design)](02_스킬/03_프론트엔드디자인_frontend-design) ※ Anthropic 제작·공개 | 바로쓰는 HTML공지 스킬 만들기 | v1 (2026-11-16) |
+| 스킬 | [IRIS 공지 HTML (iris-notice-html)](02_스킬/04_IRIS공지HTML_iris-notice-html) | 바로쓰는 HTML공지 스킬 만들기 | v1 (2026-11-17) |
 
 ## 문의
 
