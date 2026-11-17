@@ -15,10 +15,9 @@ dk-ai-lab/
 │   └─ NN_<skill 이름>/
 │       ├─ README.md     소개 · 다운로드 링크 · 등록 방법 · 버전 기록
 │       └─ (skill 파일)
-└─ 03_사외스킬/          다른 곳에서 만들어 공개한 skill (원본 그대로 + 설치 안내)
+└─ 03_사외스킬/          다른 곳에서 만들어 공개한 skill (파일 없이 안내만)
     └─ NN_<skill 이름>/
-        ├─ README.md     원본 출처 · 라이선스 · 다운로드 링크 · 등록 방법
-        └─ (skill 파일)
+        └─ README.md     만든 곳 · 목적 · 원본 주소 · 설치 방법
 ```
 
 - 세트와 skill 이름은 강의에서 부른 이름 그대로입니다.
@@ -50,7 +49,7 @@ dk-ai-lab/
 | DK스킬 | [출장복명 (trip-report)](02_DK스킬/01_출장복명_trip-report) | 재경실 워크샵 (품의서·출장복명) | v1 (2026-11-16) |
 | DK스킬 | [인쇄물 제작 (print-design)](02_DK스킬/02_인쇄물제작_print-design) | 바로쓰는 HTML공지 스킬 만들기 (수강생 질문에서 파생) | v1 (2026-11-16) |
 | DK스킬 | [IRIS 공지 HTML (iris-notice-html)](02_DK스킬/03_IRIS공지HTML_iris-notice-html) | 바로쓰는 HTML공지 스킬 만들기 | v1 (2026-11-17) |
-| 사외스킬 | [프론트엔드 디자인 (frontend-design)](03_사외스킬/01_프론트엔드디자인_frontend-design) ※ Anthropic 제작·공개 | 바로쓰는 HTML공지 스킬 만들기 | v1 (2026-11-16) |
+| 사외스킬 | [프론트엔드 디자인 (frontend-design)](03_사외스킬/01_프론트엔드디자인_frontend-design) ※ Anthropic 제작·공개 | 바로쓰는 HTML공지 스킬 만들기 | 원본 주소에서 설치 |
 
 ## 문의
 
