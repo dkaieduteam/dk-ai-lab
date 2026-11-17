@@ -52,6 +52,7 @@ dk-ai-lab/
 | DK스킬 | [IRIS 공지 HTML (iris-notice-html)](02_DK스킬/03_IRIS공지HTML_iris-notice-html) | 바로쓰는 HTML공지 스킬 만들기 | v1 (2026-11-17) |
 | 사외스킬 | [스킬 보안 점검 (SkillSpector)](03_사외스킬/01_스킬보안점검_SkillSpector) ※ NVIDIA 제작·공개 | — (skill 설치 전 점검용 추천) | 원본 주소에서 설치 |
 | 사외스킬 | [프론트엔드 디자인 (frontend-design)](03_사외스킬/02_프론트엔드디자인_frontend-design) ※ Anthropic 제작·공개 | 바로쓰는 HTML공지 스킬 만들기 | 원본 주소에서 설치 |
+| 사외스킬 | [한국어 윤문 (slop-rewrite)](03_사외스킬/03_한국어윤문_slop-rewrite) ※ Byungjun Jang 제작·공개 | — (팀 문서 윤문에 사용) | 원본 주소에서 설치 |
 
 ## 문의
 
