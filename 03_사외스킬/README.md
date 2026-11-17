@@ -10,6 +10,6 @@
 | skill | 만든 곳 | 하는 일 | 원본 |
 |---|---|---|---|
 | [스킬 보안 점검 (SkillSpector)](01_스킬보안점검_SkillSpector) | NVIDIA (Apache 2.0) | 받은 skill을 설치하기 전에 정보 유출·악성 지시 등 위험을 검사 | [GitHub](https://github.com/NVIDIA/SkillSpector) |
-| [프론트엔드 디자인 (frontend-design)](02_프론트엔드디자인_frontend-design) | Anthropic (Apache 2.0) | 템플릿 티 나지 않는 웹 화면·HTML 디자인 방향 잡기 | [GitHub](https://github.com/anthropics/skills/tree/main/skills/frontend-design) |
+| [프론트엔드 디자인 (frontend-design)](02_프론트엔드디자인_frontend-design) | Anthropic (Apache 2.0) | AI티를 덜어내주는 웹 화면·HTML 디자인 방향 잡기 | [GitHub](https://github.com/anthropics/skills/tree/main/skills/frontend-design) |
 
 팀이 만든 skill은 [02_DK스킬](../02_DK스킬)에 있습니다.
