@@ -1,0 +1,119 @@
+﻿'==============================================================
+' C1 실습3 - 생산일보 요약 리포트 (정답 VBA / 전체)
+' 대상 파일 : 생산일보_정제본_실습3.csv  (엑셀로 열어 .xlsm 으로 저장)
+' 데이터 열 : A일자 B라인 C작업조 D품목 E생산량 F불량수 G비가동시간(분) H비가동사유
+'
+' [붙여넣는 법]
+'  1) Alt+F11  ->  왼쪽 '모듈' 폴더에 모듈이 있으면 전부 제거(내보내기: 아니오)
+'  2) 메뉴 삽입 -> 모듈   (모듈은 반드시 하나만)
+'  3) 이 파일 내용을 처음부터 끝까지 전체 선택해서 그 모듈에 붙여넣기
+'  4) 메뉴 디버그 -> VBAProject 컴파일  (오류 없으면 정상)
+'  5) 전체실행 안에 커서를 두고 F5
+'
+' [결과]  요약 시트 4줄 / 1라인(5.3%)과 4라인(6.42%) 두 줄이 노랑+빨강
+'==============================================================
+
+Option Explicit
+
+Const SHEET_SRC As String = "생산일보_정제본_실습3"   ' 시트 탭에 적힌 이름 그대로
+Const SHEET_RPT As String = "요약"
+
+
+'--------------------------------------------------------------
+' 1. 요약 시트 만들기 = 시트 생성(있으면 지우고 다시) + 라인별 집계
+'--------------------------------------------------------------
+Sub S1_요약시트_만들기()
+    Dim src As Worksheet, rpt As Worksheet
+    Dim lastRow As Long, i As Long, r As Long
+    Dim ln As String
+    Dim dQty As Object, dDef As Object, k As Variant
+
+    ' 원본 시트부터 확인 (없으면 아무것도 건드리지 않고 종료)
+    On Error Resume Next
+    Set src = ThisWorkbook.Worksheets(SHEET_SRC)
+    On Error GoTo 0
+    If src Is Nothing Then
+        MsgBox "'" & SHEET_SRC & "' 시트를 찾을 수 없습니다. 엑셀 아래쪽 시트 탭 이름을 확인하고, 코드 맨 위 SHEET_SRC 값을 그 이름으로 고치세요.", vbExclamation
+        Exit Sub
+    End If
+
+    ' 요약 시트 준비 : 있으면 지우고(확인창 없이) 맨 뒤에 새로 만든다
+    Application.DisplayAlerts = False
+    On Error Resume Next
+    ThisWorkbook.Worksheets(SHEET_RPT).Delete
+    On Error GoTo 0
+    Application.DisplayAlerts = True
+
+    Set rpt = ThisWorkbook.Worksheets.Add(After:=ThisWorkbook.Worksheets(ThisWorkbook.Worksheets.Count))
+    rpt.Name = SHEET_RPT
+
+    ' 머리글
+    rpt.Range("A1:D1").Value = Array("라인", "생산량합계", "불량수합계", "불량률(%)")
+    rpt.Range("A1:D1").Font.Bold = True
+    rpt.Range("A1:D1").Interior.Color = RGB(220, 230, 241)
+
+    ' 라인별 집계 : B열=라인 / E열=생산량 / F열=불량수
+    Set dQty = CreateObject("Scripting.Dictionary")
+    Set dDef = CreateObject("Scripting.Dictionary")
+
+    lastRow = src.Cells(src.Rows.Count, 1).End(xlUp).Row   ' A열 기준 마지막 행
+
+    For i = 2 To lastRow
+        ln = Trim(CStr(src.Cells(i, 2).Value))
+        If Len(ln) > 0 Then                                ' 라인 칸이 빈 행은 건너뜀
+            ' 숫자 칸이 비어 있어도 멈추지 않게 Val() 로 0 처리
+            dQty(ln) = dQty(ln) + Val(src.Cells(i, 5).Value)
+            dDef(ln) = dDef(ln) + Val(src.Cells(i, 6).Value)
+        End If
+    Next i
+
+    ' 데이터에 나온 순서대로 기록 (1라인 -> 4라인)
+    r = 2
+    For Each k In dQty.Keys
+        rpt.Cells(r, 1).Value = k
+        rpt.Cells(r, 2).Value = dQty(k)
+        rpt.Cells(r, 3).Value = dDef(k)
+        If dQty(k) > 0 Then rpt.Cells(r, 4).Value = Round(dDef(k) / dQty(k) * 100, 2)
+        r = r + 1
+    Next k
+
+    rpt.Columns("A:D").AutoFit
+End Sub
+
+
+'--------------------------------------------------------------
+' 2. 불량률 5% 초과 강조 (A~D 배경 연노랑 / D열 글씨 빨강 굵게)
+'--------------------------------------------------------------
+Sub S2_불량률_강조()
+    Dim rpt As Worksheet
+    Dim lastRow As Long, i As Long
+
+    Set rpt = ThisWorkbook.Worksheets(SHEET_RPT)
+    lastRow = rpt.Cells(rpt.Rows.Count, 1).End(xlUp).Row
+
+    For i = 2 To lastRow
+        If IsNumeric(rpt.Cells(i, 4).Value) Then
+            If rpt.Cells(i, 4).Value > 5 Then
+                rpt.Range(rpt.Cells(i, 1), rpt.Cells(i, 4)).Interior.Color = RGB(255, 242, 204)
+                rpt.Cells(i, 4).Font.Color = RGB(192, 0, 0)
+                rpt.Cells(i, 4).Font.Bold = True
+            End If
+        End If
+    Next i
+End Sub
+
+
+'--------------------------------------------------------------
+' 3. 전체 실행 (1 -> 2 순서대로)
+'--------------------------------------------------------------
+Sub 전체실행()
+    Application.ScreenUpdating = False
+
+    S1_요약시트_만들기
+    S2_불량률_강조
+
+    Application.ScreenUpdating = True
+
+    ThisWorkbook.Worksheets(SHEET_RPT).Activate
+    MsgBox "요약 리포트를 만들었습니다." & vbCrLf & "(불량률 5% 초과 라인 강조)", vbInformation
+End Sub
