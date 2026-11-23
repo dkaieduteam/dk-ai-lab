@@ -33,6 +33,7 @@ dk-ai-lab/
 4. 압축을 풀고 README의 사용법대로 진행합니다.
 
 3번을 하지 않으면 `.bat` 파일을 실행할 때 「Windows의 PC 보호」 경고가 뜹니다.
+DK스킬 zip은 압축을 풀지 않고, 쓰고 있는 AI 서비스(ChatGPT, Claude 등)의 skill 설치 메뉴에 그대로 올립니다.
 화면 오른쪽 위 Code → Download ZIP은 저장소 전체를 받으므로 쓰지 않습니다. 필요한 것만 README 링크로 받습니다.
 
 ## 올리는 방식
@@ -51,9 +52,9 @@ dk-ai-lab/
 | 강의자료 | [바로쓰는 HTML 공지 스킬 만들기](01_강의자료/03_특별기본_바로쓰는%20HTML%20공지%20스킬%20만들기) | 특별기본 · 바로쓰는 HTML공지 스킬 만들기 | v2 (2026-11-23) |
 | AI도구 | [재경실 작업실](02_AI도구/01_재경실_작업실) | 재경실 워크샵 (품의서·출장복명) | v1 (2026-11-13) |
 | AI도구 | [업무자동화 에이전트 Starter_Kit](02_AI도구/02_업무자동화에이전트_Starter_Kit) | 특별기본 · 업무자동화 에이전트 만들기 | v1 (2026-11-13) |
-| DK스킬 | [출장복명 (trip-report)](03_DK스킬/01_출장복명_trip-report) | 재경실 워크샵 (품의서·출장복명) | v1 (2026-11-16) |
-| DK스킬 | [인쇄물 제작 (print-design)](03_DK스킬/02_인쇄물제작_print-design) | 바로쓰는 HTML공지 스킬 만들기 (수강생 질문에서 파생) | v1 (2026-11-16) |
-| DK스킬 | [IRIS 공지 HTML (iris-notice-html)](03_DK스킬/03_IRIS공지HTML_iris-notice-html) | 바로쓰는 HTML공지 스킬 만들기 | v1 (2026-11-17) |
+| DK스킬 | [출장복명 (trip-report)](03_DK스킬/01_출장복명_trip-report) | 재경실 워크샵 (품의서·출장복명) | v2 (2026-11-23) |
+| DK스킬 | [인쇄물 제작 (print-design)](03_DK스킬/02_인쇄물제작_print-design) | 바로쓰는 HTML공지 스킬 만들기 (수강생 질문에서 파생) | v2 (2026-11-23) |
+| DK스킬 | [IRIS 공지 HTML (iris-notice-html)](03_DK스킬/03_IRIS공지HTML_iris-notice-html) | 바로쓰는 HTML공지 스킬 만들기 | v2 (2026-11-23) |
 | 사외스킬 | [스킬 보안 점검 (SkillSpector)](04_사외스킬/01_스킬보안점검_SkillSpector) ※ NVIDIA 제작·공개 | — (skill 설치 전 점검용 추천) | 원본 주소에서 설치 |
 | 사외스킬 | [프론트엔드 디자인 (frontend-design)](04_사외스킬/02_프론트엔드디자인_frontend-design) ※ Anthropic 제작·공개 | 바로쓰는 HTML공지 스킬 만들기 | 원본 주소에서 설치 |
 | 사외스킬 | [한국어 윤문 (slop-rewrite)](04_사외스킬/03_한국어윤문_slop-rewrite) ※ Byungjun Jang 제작·공개 | — (팀 문서 윤문에 사용) | 원본 주소에서 설치 |

@@ -5,39 +5,33 @@
 
 ## 다운로드
 
-[trip-report-skill.zip 받기 (v1)](https://github.com/dkaieduteam/dk-ai-lab/releases/download/trip-report-v1/trip-report-skill.zip)
+[trip-report-skill.zip 받기 (v2)](https://github.com/dkaieduteam/dk-ai-lab/releases/download/trip-report-v2/trip-report-skill.zip)
 
-## 받은 뒤 할 일
+## 설치 방법
 
-1. `trip-report-skill.zip`을 받습니다.
-2. 압축을 풀기 전에 zip 파일을 마우스 오른쪽 버튼으로 클릭 → 속성 → 「차단 해제」를 체크하고 확인을 누릅니다.
-3. 압축을 풀고 `출장복명_skill` 폴더를 엽니다.
+1. `trip-report-skill.zip`을 받습니다. 압축은 풀지 않습니다.
+2. 쓰고 있는 AI 서비스(ChatGPT, Claude 등)의 skill 설치 메뉴에 받은 zip 파일을 그대로 올립니다.
+3. 설치가 끝나면 skill 목록에 `trip-report`가 보입니다.
 
-2번을 하지 않으면 `.bat` 파일을 실행할 때 「Windows의 PC 보호」 경고가 뜹니다.
+skill 메뉴 위치는 서비스마다 다르고 자주 바뀝니다. 찾기 어려우면 쓰는 AI에게 「skill zip 파일 설치하는 방법 알려 줘」라고 물어보면 됩니다.
 
 ## 준비
 
-- ChatGPT 데스크탑 앱
-- Python과 Pillow (엑셀에 영수증 이미지를 붙일 때 씁니다)
-
-## 등록 방법
-
-1. `skill 설치.bat`을 더블클릭합니다. `trip-report` skill이 이 PC의 Codex skills 폴더에 설치됩니다.
-2. ChatGPT 앱에서 새 채팅(Ctrl+N)을 열고 입력창에 `$`를 치면 목록에 `Trip Report`가 보입니다.
-3. 지우려면 `skill 지우기.bat`을 실행합니다.
+- skill 설치를 지원하는 AI 서비스 (ChatGPT, Claude 등)
+- 코드 실행 기능 (Python으로 회사 양식 엑셀을 채우고 영수증 이미지를 붙입니다)
 
 ## 사용법
 
-1. 영수증 사진을 폴더 하나에 모읍니다. 1박 이상이면 숙박 예약 내역과 매출전표도 함께 넣습니다.
-2. ChatGPT 앱에서 그 폴더를 엽니다. 「파일」 → 「폴더 열기」로 고르고 「폴더 신뢰」를 누릅니다.
-3. 새 채팅에서 `$`로 `Trip Report`를 고르고 출장복명을 만들어 달라고 요청합니다.
-4. AI가 영수증에서 읽은 날짜·구간·금액을 표로 보여 줍니다. 맞는지 확인하고, 묻는 값(부서·이름·출장 목적 등)에 답합니다.
-5. 확인이 끝나면 회사 양식 엑셀이 만들어집니다. 1박 이상은 출장 복명, 당일은 외근 복명입니다.
+1. 새 채팅에 영수증 사진을 올립니다. 1박 이상이면 숙박 예약 내역과 매출전표도 함께 올립니다.
+2. 「출장복명 만들어 줘」라고 요청합니다. AI가 `trip-report` skill을 불러 작업합니다.
+3. AI가 영수증에서 읽은 날짜·구간·금액을 표로 보여 줍니다. 맞는지 확인하고, 묻는 값(부서·이름·출장 목적 등)에 답합니다.
+4. 확인이 끝나면 회사 양식 엑셀이 만들어집니다. 1박 이상은 출장 복명, 당일은 외근 복명입니다. 만든 파일을 내려받아 씁니다.
 
-정산 기준은 `trip-report/출장정산_규칙.md`에 있습니다. 우리 회사 기준과 다르면 이 파일을 고친 뒤 `skill 설치.bat`을 다시 실행합니다.
+정산 기준은 zip 안의 `trip-report/출장정산_규칙.md`에 있습니다. 우리 회사 기준과 다르면 압축을 풀어 이 파일을 고치고, `trip-report` 폴더를 다시 zip으로 묶어 설치합니다.
 
 ## 버전 기록
 
 | 버전 | 날짜 | 바뀐 점 |
 |---|---|---|
+| v2 | 2026-11-23 | 설치용 `.bat` 파일을 빼고 skill 폴더만 zip으로 묶음. 쓰는 AI 서비스에 zip을 그대로 올려 설치하도록 안내를 바꿈 |
 | v1 | 2026-11-16 | 처음 게시 |
