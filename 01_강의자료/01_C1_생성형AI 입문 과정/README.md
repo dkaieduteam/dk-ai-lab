@@ -5,7 +5,7 @@ C1 생성형AI 입문 과정 실습 자료입니다. 이미지에서 표·텍스
 
 ## 다운로드
 
-[c1-genai-course.zip 받기 (v1)](https://github.com/dkaieduteam/dk-ai-lab/releases/download/c1-genai-v1/c1-genai-course.zip)
+[c1-genai-course.zip 받기 (v2)](https://github.com/dkaieduteam/dk-ai-lab/releases/download/c1-genai-v2/c1-genai-course.zip)
 
 ## 받은 뒤 할 일
 
@@ -28,4 +28,5 @@ C1 생성형AI 입문 과정 실습 자료입니다. 이미지에서 표·텍스
 
 | 버전 | 날짜 | 바뀐 점 |
 |---|---|---|
+| v2 | 2026-11-23 | Windows에서 압축을 풀면 폴더·파일 이름이 깨지던 문제 수정 (zip을 다시 묶음, 내용은 같음) |
 | v1 | 2026-11-19 | 처음 게시 |

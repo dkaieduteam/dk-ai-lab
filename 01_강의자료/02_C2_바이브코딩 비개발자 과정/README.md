@@ -5,7 +5,7 @@ C2 바이브코딩 비개발자 과정 실습 자료입니다. 코딩 없이 AI�
 
 ## 다운로드
 
-[c2-vibecoding-course.zip 받기 (v1)](https://github.com/dkaieduteam/dk-ai-lab/releases/download/c2-vibecoding-v1/c2-vibecoding-course.zip)
+[c2-vibecoding-course.zip 받기 (v2)](https://github.com/dkaieduteam/dk-ai-lab/releases/download/c2-vibecoding-v2/c2-vibecoding-course.zip)
 
 ## 받은 뒤 할 일
 
@@ -26,4 +26,5 @@ C2 바이브코딩 비개발자 과정 실습 자료입니다. 코딩 없이 AI�
 
 | 버전 | 날짜 | 바뀐 점 |
 |---|---|---|
+| v2 | 2026-11-23 | Windows에서 압축을 풀면 폴더·파일 이름이 깨지던 문제 수정 (zip을 다시 묶음, 내용은 같음) |
 | v1 | 2026-11-19 | 처음 게시 |
