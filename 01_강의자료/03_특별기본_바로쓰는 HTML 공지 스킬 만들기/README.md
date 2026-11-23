@@ -5,7 +5,7 @@
 
 ## 다운로드
 
-[html-notice-course.zip 받기 (v1)](https://github.com/dkaieduteam/dk-ai-lab/releases/download/html-notice-v1/html-notice-course.zip)
+[html-notice-course.zip 받기 (v2)](https://github.com/dkaieduteam/dk-ai-lab/releases/download/html-notice-v2/html-notice-course.zip)
 
 ## 받은 뒤 할 일
 
@@ -26,4 +26,5 @@
 
 | 버전 | 날짜 | 바뀐 점 |
 |---|---|---|
+| v2 | 2026-11-23 | Windows에서 압축을 풀면 폴더·파일 이름이 깨지던 문제 수정 (zip을 다시 묶음, 내용은 같음) |
 | v1 | 2026-11-19 | 처음 게시 |
