@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""품의서 도구 실행기 — 01_품의서 의 「품의서 만들기.bat」 · 「이전 버전으로.bat」이 부른다. AI 는 이 폴더를 고치지 않는다.
+"""품의서 도구 실행기 — 01_품의서 의 "품의서 만들기.bat" · "이전 버전으로.bat"이 부른다. AI 는 이 폴더를 고치지 않는다.
 
     만들기     ① AI작업실의 변환 프로그램이 지금 쓰는 버전과 다르면 : 실행 전 검사 → 시험(시험 기준) → 새 버전으로 적용.
                   다른 품의서(시험 기준)의 모양이 바뀌어도 막지 않고 결과 페이지와 AI작업실의 시험 결과.md 로 알린다.
@@ -388,7 +388,7 @@ def make(gate_result=None):
         r["docs"] = [d for d in r["docs"] if any(any(c.strip() for row in b for c in row) if isinstance(b, list) else b.strip()
                                                      for b in d["blocks"])]      # 글자가 하나도 없는 건은 품의서로 보지 않는다
         if not r["docs"]:
-            skipped.append((path.name, "품의서를 찾지 못했습니다 (pptx 는 「아래」 줄이 있는 슬라이드를 품의서로 봅니다)"))
+            skipped.append((path.name, "품의서를 찾지 못했습니다 (pptx 는 “아래” 줄이 있는 슬라이드를 품의서로 봅니다)"))
             continue
         for i, d in enumerate(r["docs"], 1):
             k = case_id(table, f"{path.name} · 품의서{i}")
@@ -499,6 +499,8 @@ textarea{width:100%;height:160px;margin-top:10px;font-family:Consolas,monospace;
 """
 
 PAGE_JS = """
+if('scrollRestoration' in history){history.scrollRestoration='manual';}
+window.addEventListener('load',function(){if(!location.hash){window.scrollTo(0,0);}});
 function done(k,t,bad){var m=document.getElementById('msg-'+k);m.textContent=t;m.className='msg'+(bad?' bad':'');}
 function copyCode(k){
   var t=document.getElementById('code-'+k);
@@ -521,7 +523,7 @@ def page(made, skipped, g):
     if g and g["결과"] == "적용" and g["바뀜"]:
         notes.append(f'<div class="note warn"><b>AI가 고친 버전을 적용했습니다 (버전 {e(g["버전"])}). 다른 품의서 {len(g["바뀜"])}건의 모양도 바뀌었습니다</b>'
                      f'예전에 맞게 나오던 품의서 {g["시험"]}건 가운데 {len(g["바뀜"])}건이 고치기 전과 다르게 나옵니다. '
-                     f'고친 품의서에만 맞게 하려면 ChatGPT 앱의 「01_품의서 AI작업실」에 <code>{FIX_NARROW}</code> 라고 보내세요. '
+                     f'고친 품의서에만 맞게 하려면 ChatGPT 앱의 "01_품의서 AI작업실"에 <code>{FIX_NARROW}</code> 라고 보내세요. '
                      f'바로 되돌리려면 <code>이전 버전으로.bat</code>을 실행하세요 (버전 {e(g["이전"])}로 돌아갑니다).</div>')
     elif g and g["결과"] == "적용":
         notes.append(f'<div class="note ok"><b>AI가 고친 버전을 적용했습니다 (버전 {e(g["버전"])})</b>'
@@ -530,7 +532,7 @@ def page(made, skipped, g):
     elif g:
         notes.append(f'<div class="note bad"><b>AI가 고친 프로그램을 쓰지 않았습니다</b>'
                      f'{e(g["까닭"][0])}{" 외 " + str(len(g["까닭"]) - 1) + "건" if len(g["까닭"]) > 1 else ""}. '
-                     f'지금 결과는 버전 {e(g["버전"])}로 만들었습니다. ChatGPT 앱의 「01_품의서 AI작업실」에 '
+                     f'지금 결과는 버전 {e(g["버전"])}로 만들었습니다. ChatGPT 앱의 "01_품의서 AI작업실"에 '
                      f'<code>{FIX_TEST}</code> 라고 보내세요.</div>')
     if skipped:
         items = "".join(f"<br>· {e(n)} — {e(r)}" for n, r in skipped)
@@ -565,7 +567,7 @@ def page(made, skipped, g):
                     f'<textarea id="code-{m["건"]}" hidden readonly>{e(body)}</textarea></section>')
     return (f'<!DOCTYPE html>\n<html lang="ko"><head><meta charset="utf-8"><title>HTML 품의서 확인</title><style>{PAGE_CSS}</style></head><body>'
             f'<header><h1>HTML 품의서 확인</h1><span>변환 프로그램 버전 {e(version(CUR))} · {datetime.datetime.now():%Y-%m-%d %H:%M} 만듦</span></header>'
-            f'<main>{"".join(notes)}<p class="sub">품의서 서식을 확인하세요. 서식이 맞으면 「HTML 코드 복사」, 다르면 ChatGPT 앱의 「01_품의서 AI작업실」에 '
+            f'<main>{"".join(notes)}<p class="sub">품의서 서식을 확인하세요. 서식이 맞으면 "HTML 코드 복사", 다르면 ChatGPT 앱의 "01_품의서 AI작업실"에 '
             f'건 번호와 줄번호로 말하세요. 예) <code>건0003 9번 줄 바로 아래에 표가 들어가야 해. 이것만 고쳐 줘.</code></p>'
             f'<nav>{nav}</nav>{"".join(secs)}</main><script>{PAGE_JS}</script></body></html>\n')
 
@@ -621,7 +623,7 @@ def main():
     except Exception as e:
         log("멈춤 " + "".join(traceback.format_exception(type(e), e, e.__traceback__))[-1500:])
         print("\n  품의서 만들기가 멈췄습니다.")
-        print("  「이전 버전으로.bat」을 실행해 보세요. 그래도 멈추면 보조강사에게 이 화면을 보여 주세요.")
+        print("  “이전 버전으로.bat”을 실행해 보세요. 그래도 멈추면 보조강사에게 이 화면을 보여 주세요.")
         print(f"  ({type(e).__name__})\n")
         sys.exit(1)
     finally:

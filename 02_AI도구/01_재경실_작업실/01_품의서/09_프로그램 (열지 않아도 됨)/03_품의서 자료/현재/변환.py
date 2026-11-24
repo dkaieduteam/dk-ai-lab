@@ -20,6 +20,9 @@
 바꾸는 법 (품의서_작성규칙.md 의 재경실 Guide · 품의서_HTML틀.html 과 같은 모양)
 - 번호는 기호 모양이 아니라 깊이로 다시 매긴다 : 1. > 가. > (1) > (가) > - > ·  (□ → 1. · ○ → 가. · - 는 그대로)
   원문에서 처음 나온 기호가 깊이 1, 그 아래에 처음 나온 다른 기호가 깊이 2 … 번호 값(1 → 가, 3 → 다)은 그대로 옮긴다
+  앞뒤 줄과 같은 기호(- · □ ○)인데 그 줄만 들여쓰기가 1~3칸 다르고 세 줄 모두 「항목 : 값」이면 앞뒤 줄과 같은 단계로 본다
+  들여쓰기가 거의 없는 품의서(본문 줄 90% 이상이 앞 공백 0)는 번호 · 기호로 단계를 정하고, 가. 줄 바로 다음 ( 덧붙임 줄은
+  그 항목 글자 위치, [첨 부] 같은 괄호 이름 줄은 마지막 번호 단계 · 그 다음 줄들은 괄호 이름 뒤 글자 위치
 - 깊이별 앞 공백 = 변환설정.json 의 깊이별_앞공백. 서두 · 붙임 = 깊이 1 위치. 번호 없는 이어짐 줄 = 윗 항목 글자 위치
 - 「아래」 줄 변형(- 아 래 -, -다음-, === 아 래 ===, 【아래】, 가운데 정렬 …)은 Guide 「아래」 줄로. 원문에 없으면 넣지 않는다
 - 빈 줄은 본문 맨 위 · 서두 다음 · 「아래」 줄 다음 · 큰 번호 사이 · 붙임 앞에만 한 줄
@@ -1301,9 +1304,22 @@ def shape(blocks):
         elif L["k"] != "blank":
             L["prev"], last_body = last_body, L.get("body", "")
 
+    kv = lambda L: L["k"] == "item" and L["fam"] in BULLETS and re.match(r"^[^:：]{1,30}[:：]\s*\S", L["rest"])
+    for a, L, b in zip(lines, lines[1:], lines[2:]):    # 「항목 : 값」 - 줄 사이에서 한 줄만 들여쓰기가 다르면 앞뒤 줄에 맞춘다
+        if kv(a) and kv(L) and kv(b) and a["fam"] == L["fam"] == b["fam"] and a["w"] == b["w"] != L["w"] \
+                and abs(L["w"] - a["w"]) <= 3:                   # 4칸 이상 차이는 일부러 한 단계 내린 것일 수 있어 그대로 둔다
+            L["w"] = a["w"]
+            note("같은 기호 줄 사이에서 들여쓰기만 다른 줄을 같은 단계로 맞춤")
+
+    body_lines = [L for L in lines if L["k"] in ("text", "item", "attach")]
+    flat = len(body_lines) >= 5 and sum(L["w"] == 0 for L in body_lines) >= 0.9 * len(body_lines)
+    if flat:
+        note("들여쓰기가 없는 품의서 — 번호 · 기호로 단계를 정함")
+
     out, stack = [], []
     phase, attach_col, has_area, table_ind = "head", None, False, indent(1)
     item_depth, after_blank = None, True                # 바로 앞 번호 줄의 깊이 · 그 뒤에 빈 줄이 있었는가
+    last_k, label_col = None, None                      # 바로 앞 글줄의 종류 · [첨 부] 같은 괄호 이름 뒤 글자 위치
 
     def blank():
         if out and out[-1][0] != "blank":
@@ -1315,6 +1331,7 @@ def shape(blocks):
             after_blank = True
             continue
         was_blank, after_blank = after_blank, False
+        pk, last_k = last_k, k
         if k == "area":
             blank()
             out.append(("area",))
@@ -1365,6 +1382,20 @@ def shape(blocks):
         if phase == "head":                                                 # 서두
             out.append(("p", indent(1), L["body"]))
             continue
+        if flat:                                                            # 들여쓰기가 없는 품의서의 번호 없는 줄
+            if not was_blank and pk == "item" and item_depth and item_depth > 1 and L["body"].startswith("("):
+                out.append(("p", indent(item_depth + 1), L["body"]))       # 가. 줄 바로 다음 ( 덧붙임 = 그 항목 글자 위치
+                continue
+            if not was_blank and pk == "text" and label_col is not None:    # [첨 부] 줄 다음 = 괄호 이름 뒤 글자 위치
+                out.append(("p", label_col, L["body"]))
+                continue
+            m = re.match(r"^\[[^\]]{1,10}\]\s*", L["body"])
+            label_col = None
+            if stack and m:                                                 # [첨 부] 줄 = 마지막 번호(가. 1. 등) 단계 (빈 줄이 없어도)
+                d = next((i + 1 for i in range(len(stack) - 1, -1, -1) if stack[i]["fam"] not in BULLETS), 1)
+                label_col = indent(d) + width(m.group())
+                out.append(("p", indent(d), L["body"]))
+                continue
         fit = [i for i, e in enumerate(stack) if e["w"] <= L["w"]]          # 번호 없는 줄
         iw = stack[item_depth - 1]["w"] if item_depth and item_depth <= len(stack) else None
         if (iw is not None and not was_blank and (L["w"] <= iw if item_depth == 1 else
