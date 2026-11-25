@@ -1,0 +1,40 @@
+{
+  "제목": "재경실 워크샵 · 교육 전 사전 점검",
+  "부제": "작업실 파일 · 프로그램 실행 · ChatGPT 앱 · 로그인 · 예전 skill을 확인합니다",
+  "python": [
+    "01_*\\09_*\\python\\python.exe"
+  ],
+  "python_명령": [],
+  "점검": [
+    "09_*\\점검.py"
+  ],
+  "항목": [
+    {
+      "key": "place",
+      "group": "작업실",
+      "name": "압축 풀기 · 폴더 위치 · 실습 파일"
+    },
+    {
+      "key": "app",
+      "group": "ChatGPT",
+      "name": "ChatGPT 데스크탑 앱"
+    },
+    {
+      "key": "login",
+      "group": "ChatGPT",
+      "name": "ChatGPT 로그인"
+    },
+    {
+      "key": "skill",
+      "group": "ChatGPT",
+      "name": "출장복명 skill 정리 (예전 설치는 백업으로 옮김)"
+    }
+  ],
+  "교안": {
+    "이름": "동국제강 재경실_품의서 HTML 작성 · 출장복명 첨부자료 만들기",
+    "주소": "https://app.notion.com/p/40cf7fbf84ee8184a37ac88b249e6576"
+  },
+  "새로_설치할_skill": [
+    "trip-report"
+  ]
+}

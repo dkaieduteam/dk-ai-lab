@@ -4,13 +4,14 @@
 
 ## 다운로드
 
-[jaegyeong-workroom.zip 받기 (v2)](https://github.com/dkaieduteam/dk-ai-lab/releases/download/jaegyeong-v2/jaegyeong-workroom.zip)
+[jaegyeong-workroom.zip 받기 (v3)](https://github.com/dkaieduteam/dk-ai-lab/releases/download/jaegyeong-v3/jaegyeong-workroom.zip)
 
 ## 받은 뒤 할 일
 
 1. `jaegyeong-workroom.zip`을 받습니다.
 2. 압축을 풀기 전에 zip 파일을 마우스 오른쪽 버튼으로 클릭 → 속성 → 「차단 해제」를 체크하고 확인을 누릅니다.
 3. 압축을 풀고 `재경실_작업실` 폴더를 엽니다.
+4. `00_사전 점검.bat`을 더블클릭합니다. 점검 창이 실습 파일 · ChatGPT 앱 · 로그인을 확인하고, 예전에 설치한 출장복명 skill이 있으면 지우지 않고 백업 폴더(`.codex\skills_백업`)로 옮깁니다.
 
 2번을 하지 않으면 `.bat` 파일을 실행할 때 「Windows의 PC 보호」 경고가 뜹니다.
 
@@ -55,5 +56,6 @@ ChatGPT 데스크탑 앱에서 진행합니다. 앱이 없으면 https://chatgpt
 
 | 버전 | 날짜 | 바뀐 점 |
 |---|---|---|
+| v3 | 2026-11-25 | 사전 점검(`00_사전 점검.bat`) 포함 · 빠진 파일은 받은 zip의 파일 목록으로 확인 · 예전 trip-report skill은 지우지 않고 백업 폴더로 옮김 |
 | v2 | 2026-11-24 | 영수증을 실제 화면과 비슷한 가상 영수증으로 바꾸고 출장 5건(자가차량 외근 포함)으로 정리 · 숙박비 1박 70,000원 한도 · 완성 skill 폴더를 빼고 채팅으로 skill을 만들고 설치 · 지우는 흐름으로 바꿈 · `복명서_생성.py`를 `09_프로그램` 폴더로 옮김 · 품의서 시험 기준 사례 추가 |
 | v1 | 2026-11-13 | 처음 게시 |
